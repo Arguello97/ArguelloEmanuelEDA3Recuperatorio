@@ -36,9 +36,37 @@ public class FuerzaArmada {
 		return batallas.get(nombre);
 	}
 
-	public Boolean enviarALaBatalla(String string, int i) {
-		// TODO Auto-generated method stub
-		return false;
-	} 
+	public Boolean enviarALaBatalla(String nombreBatalla, Integer codigoVehiculo) throws VehiculoInexistente, VehiculoIncompatible {
+		Batalla batallaAPelear=batallas.get(nombreBatalla);
+		Boolean envio=false;
+		if(!(convoy.contains(buscar(codigoVehiculo)))) {
+			throw new VehiculoInexistente();
+		}
+		
+		switch(batallaAPelear.getTipo()) {
+		case TERRESTRE:
+			if(!(buscar(codigoVehiculo) instanceof Terrestre)) {
+				throw new VehiculoIncompatible();
+			}
+			else {
+				envio= true;
+			}
+			break;
+			
+		}
 
+		
+		
+		return envio;
+
+}
+	
+	public Vehiculo buscar(Integer codigo) {
+		for(Vehiculo e:convoy) {
+			if(e.getCodigo().equals(codigo)) {
+				return e;
+			}
+		}
+		return null;
+	}
 }

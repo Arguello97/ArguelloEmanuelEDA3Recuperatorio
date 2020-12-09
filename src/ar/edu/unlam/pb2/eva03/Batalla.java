@@ -17,6 +17,7 @@ public class Batalla {
 		this.latitud=latitud;
 		this.longitud=longitud;
 		this.tipo=tipo;
+		this.vehiculosEnLaBatalla=new HashSet<Vehiculo>();
 	}
 
 	public Double getLatitud() {
