@@ -52,6 +52,14 @@ public class FuerzaArmada {
 				envio= true;
 			}
 			break;
+		case NAVAL:
+			if(!(buscar(codigoVehiculo) instanceof Acuatico)) {
+				throw new VehiculoIncompatible();
+			}
+			else {
+				envio= true;
+			}
+			break;
 			
 		}
 
