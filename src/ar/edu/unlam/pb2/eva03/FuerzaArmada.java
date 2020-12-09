@@ -60,6 +60,14 @@ public class FuerzaArmada {
 				envio= true;
 			}
 			break;
+		case AEREA:
+			if(!(buscar(codigoVehiculo) instanceof Volador)) {
+				throw new VehiculoIncompatible();
+			}
+			else {
+				envio= true;
+			}
+			break;
 			
 		}
 
